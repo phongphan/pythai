@@ -80,7 +80,9 @@ PyInit_libthai(void)
     PyObject* m;
     m = PyModule_Create(&moduledef);
     if (m == NULL)
-      return;
+      return NULL;
+
+    return m;
 }
 #else
 	static PyObject*
@@ -155,6 +157,8 @@ initlibthai(void)
     m = Py_InitModule3("libthai", module_methods,
                        "libthai module");
     if (m == NULL)
-      return;
+      return NULL;
+
+    return m;
 }
 #endif
